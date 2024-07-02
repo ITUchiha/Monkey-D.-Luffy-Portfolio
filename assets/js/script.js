@@ -12,6 +12,7 @@ document.querySelectorAll('.nav__link').forEach(nav__link=>{
 })
 
 
+
 //slider
 let swiperProjects = new Swiper('.projects__container',{ 
     loop:true,
@@ -40,7 +41,7 @@ let swiperTestimonial = new Swiper(".Testimonial__container ", {
       prevEl: ".swiper-button-prev",
     },
     pagination:{
-        el:".swiper-pagination",
+        el:".Testimonial__container .swiper-pagination",
     },
     mousewheel:true,
     keyboard:true,
@@ -77,26 +78,37 @@ const scrollUp = () =>{
 window.addEventListener('scroll', scrollUp)
 
 // ------------dark-light-theme-----------------
-let themeState='light-theme'
-let body=document.querySelector('body')
+let body=document.querySelector('body');
+if(!localStorage.getItem('themeState')){
+    themeState = 'light-theme';
+    localStorage.setItem('themeState','light-theme');
+    body.className=themeState;
+}else{
+    themeState = localStorage.getItem('themeState')
+    console.log(themeState);
+    body.className=themeState;
+}
+
 let theme=document.querySelector('#theme-button')
 const change=()=>{
-    console.log(body);
-    console.log(theme);
     if(themeState=='light-theme'){
         themeState='dark-theme'
+        localStorage.setItem('themeState','dark-theme');
         body.classList.add(themeState)
         theme.classList.remove('ri-moon-line')
         theme.classList.add('ri-sun-line')
     }else{
         body.classList.remove(themeState)
         themeState='light-theme'
+        localStorage.setItem('themeState','light-theme');
         theme.classList.add('ri-moon-line')
         theme.classList.remove('ri-sun-line')
     }
 }
 document.querySelector('.change-theme').addEventListener('click',change)
 
+
+console.log();
 // change background header
 const scrollHeader = () =>{
     const header = document.getElementById('header')
