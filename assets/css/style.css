@@ -11,7 +11,7 @@
   --title-color: hsl(207, 4%, 16%);
   --text-color: hsl(207, 4%, 28%);
   --text-color-light: hsl(207, 4%, 56%);
-  --body-color: hsl(207, 4%, 99%);
+  --body-color: hsl(240, 20%, 99%);
   --container-color: hsl(207, 4%, 95%);
 
   /* Change the first number */
@@ -372,7 +372,9 @@ img{
     font-size: var(--h1-font-size);
     font-weight: var(--font-semi-bold);
 }
-
+.home__info-description p{
+    padding: 20px 0px;
+}
 /* -----------------------------------------skills-------------------------------------------- */
 
 .skills__container{
@@ -412,9 +414,11 @@ img{
 }
 
 .skills__blob{
-    width: 80px;
-    height: 100px;
-    background: var(--container-color);
+    width: 100px;
+    height: 110px;
+    background-color: rgba(109, 106, 106, 0.3);
+    backdrop-filter: blur(20px);
+    background-size: 3px;
     place-items: center;
     border-radius: 1rem 1.5rem;
     margin: 0 auto 1rem auto;
@@ -1007,7 +1011,7 @@ img{
 
     .skills__container,.qualification__container,.services__container,
     .contact__container{
-        grid-template-columns: repeat(2,max-content);
+        grid-template-columns: repeat(2,1fr);
     }
 
     .skills__container{
